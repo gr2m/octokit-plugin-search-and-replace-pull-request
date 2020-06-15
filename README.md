@@ -36,7 +36,9 @@ Install with `npm install @octokit/core octokit-plugin-search-and-replace-pull-r
 
 ```js
 const { Octokit } = require("@octokit/core");
-const { searchAndReplacePullRequest } = require("octokit-plugin-search-and-replace-pull-request");
+const {
+  searchAndReplacePullRequest,
+} = require("octokit-plugin-search-and-replace-pull-request");
 ```
 
 </td></tr>
@@ -50,13 +52,12 @@ octokit.createSearchAndReplacePullRequest({
   search: "master",
   replace: "main",
 });
-
 ```
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
-  
+
 ## License
 
 [MIT](LICENSE)
