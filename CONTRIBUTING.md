@@ -30,6 +30,48 @@ Run the tests before making changes to make sure the local setup is working as e
 npm test
 ```
 
+## Update test fixtures
+
+Here is a script that records fixtures and logs them to stdout. Run with `GITHUB_TOKEN=... node my-script.js`. [Create token with repo scope](https://github.com/settings/tokens/new?scopes=repo).
+
+Make sure to run `npm run build`, to make sure the `pkg/` folder is created and up-to-date.
+
+```js
+// my-script.js
+const { Octokit } = require("@octokit/core");
+const { searchAndReplacePullRequest } = require("./pkg");
+const MyOctokit = Octokit.plugin(searchAndReplacePullRequest);
+const octokit = new MyOctokit({
+  auth: process.env.GITHUB_TOKEN,
+});
+
+const fixtures = [];
+octokit.hook.after("request", (response, options) => {
+  fixtures.push({
+    request: options,
+    response,
+  });
+});
+
+octokit
+  .createSearchAndReplacePullRequest({
+    owner: "gr2m",
+    repo: "sandbox",
+    search: "master",
+    replace: "main",
+  })
+
+  .then(() => {
+    fixtures.forEach((fixture) => {
+      if (fixture.request.headers.authorization) {
+        fixture.request.headers.authorization = "token secret";
+      }
+    });
+
+    console.log(JSON.stringify(fixtures, null, 2));
+  });
+```
+
 ## Submitting the Pull Request
 
 - Create a new branch locally.
