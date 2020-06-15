@@ -4,7 +4,7 @@ import { createPullRequest } from "octokit-plugin-create-pull-request";
 import { searchAndReplacePullRequest } from "../src";
 
 describe("Smoke test", () => {
-  it("is a function", () => {
+  it("export is a function", () => {
     expect(searchAndReplacePullRequest).toBeInstanceOf(Function);
   });
 
@@ -14,9 +14,9 @@ describe("Smoke test", () => {
       createPullRequest,
       searchAndReplacePullRequest
     );
-    // const octokit = new MyOctokit();
+    const octokit = new MyOctokit();
 
-    // expect(octokit.createSearchAndReplacePullRequest).toBeInstanceOf(Function);
+    expect(octokit.createSearchAndReplacePullRequest).toBeInstanceOf(Function);
   });
 
   it("searchAndReplacePullRequest.VERSION is set", () => {
