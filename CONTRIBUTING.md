@@ -42,7 +42,7 @@ npm test
 You can install `octokit-plugin-search-and-replace-pull-request` from each pull request. Replace `[PULL REQUEST NUMBER]`:
 
 ```
-npm install https://github.pika.dev/`gr2m/octokit-plugin-search-and-replace-pull-request`/pr/[PULL REQUEST NUMBER]
+npm install https://github.pika.dev/gr2m/octokit-plugin-search-and-replace-pull-request/pr/[PULL REQUEST NUMBER]
 ```
 
 Once you are done testing, you can revert back to the default module `octokit-plugin-search-and-replace-pull-request` from npm with `npm install octokit-plugin-search-and-replace-pull-request`
