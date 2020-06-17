@@ -49,10 +49,20 @@ const {
 octokit.createSearchAndReplacePullRequest({
   owner: "octocat",
   repo: "hello-world",
-  search: "master",
-  replace: "main",
+  title: "pull request title",
+  body: "pull request description",
+  base: "master" /* optional: defaults to default branch */,
+  head: "rename-master-to-main",
+  terms: [
+    {
+      search: "master",
+      replace: "main",
+    },
+  ],
 });
 ```
+
+One commit is created for every term. If there are no matches at all, an empty commit is created.
 
 ## Contributing
 
