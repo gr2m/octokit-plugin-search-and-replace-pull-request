@@ -9,7 +9,7 @@
     "pretest": "npm run -s lint",
     "test": "jest --coverage"
   },
-  "repository": "https://github.com/gr2m/octokit-plugin-search-and-replace-pull-request",
+  "repository": "github:gr2m/octokit-plugin-search-and-replace-pull-request",
   "keywords": [
     "github",
     "api",
