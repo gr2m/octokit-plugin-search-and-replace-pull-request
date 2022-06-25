@@ -34,7 +34,7 @@
     "jest": "^26.0.1",
     "octokit-plugin-create-pull-request": "^3.4.0",
     "prettier": "^2.0.5",
-    "semantic-release": "^17.0.8",
+    "semantic-release": "^19.0.3",
     "semantic-release-plugin-update-version-in-files": "^1.0.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
