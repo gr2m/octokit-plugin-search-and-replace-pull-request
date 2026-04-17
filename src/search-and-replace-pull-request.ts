@@ -39,6 +39,7 @@ export async function createSearchAndReplacePullRequest(
   for (const { search, replace } of terms) {
     const changes: Required<createPullRequest.Changes> = {
       commit: `Replace ${search} with ${replace}`,
+      emptyCommit: false,
       files: {},
     };
 
